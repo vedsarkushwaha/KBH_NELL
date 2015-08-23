@@ -1,0 +1,45 @@
+=========================
+Do separetly for each of the PPDB files
+
+1. Try bag of words matching and replacing with paraphrase words. Do not remove stop words.
+
+2. Try segment removing from lines using PPDB. This time word order is fixed.
+
+3. Read Reverb and Ollie, and use there technique to do paraphrasing.
+
+
+
+
+
+demo sentence: phil_hughes athlete plays for team yankees
+
+predicate_extraction
+=======================
+
+This file will give subject relation object, when you enter just relation. Note that here relations from both the side should match exactly (word to word and in order)
+For example:
+	"athlete plays for team" is a relation, when you enter this, you will get different - subject relation objects - information
+
+
+predicate_extraction_set_matching
+=====================================
+
+This file will give subject relation object. Here comparision between relations and users query is happen, based on set. User queries are converted into set of words and similarly all relations from graph are converted into bag of words. If for any relation from graph is subset of set of words from user query, then print that relations. 60 % overlap
+
+Which athlete plays for team yankees?
+
+
+predicate_extraction_node_matching
+=====================================
+
+subject and object of relation obtained from graph is matched with user query. If found, then overall match between (relations obtained from graph) and (user query) is checked. If more than 30% words overlapped, i.e if len(relations)/2<len(user_query intersection relations) then print the relation.
+
+phil_hughes likes to play for team yankees.
+
+
+predicate_extraction_combi
+=====================================
+
+combines all the above technique.
+
+
